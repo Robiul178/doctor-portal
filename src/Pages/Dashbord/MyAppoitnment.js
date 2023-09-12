@@ -6,7 +6,7 @@ import { AuthContext } from '../../contexts/AuthProvider';
 const MyAppoitnment = () => {
     const { user } = useContext(AuthContext);
 
-    const url = `http://localhost:5000/booking?email=${user?.email}`;
+    const url = `https://doctorportal-ten.vercel.app/booking?email=${user?.email}`;
     const { data: bookings = [] } = useQuery({
         queryKey: ['bookings', user?.email],
         queryFn: async () => {
@@ -36,7 +36,7 @@ const MyAppoitnment = () => {
                     </thead>
                     <tbody>
                         {
-                            bookings.map((booking, i) => <tr>
+                            bookings?.map((booking, i) => <tr>
                                 <th>{i + 1}</th>
                                 <td>{booking.patient}</td>
                                 <td>{booking.treatment}</td>

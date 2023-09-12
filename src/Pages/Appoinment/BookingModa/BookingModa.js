@@ -25,7 +25,7 @@ const BookingModa = ({ clickedTreatment, setTreatment, selectedDate }) => {
         }
 
 
-        fetch('http://localhost:5000/bookings', {
+        fetch('https://doctorportal-ten.vercel.app/bookings', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

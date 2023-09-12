@@ -3,6 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import React, { useState } from 'react';
 import BookingModa from '../BookingModa/BookingModa';
 import AppoinmentOption from './AppoinmentOption';
+// import ManageDoctor from '../../Dashbord/ManageDoctor';
 
 const AvilableAppoinment = ({ selectedDate }) => {
 
@@ -12,7 +13,7 @@ const AvilableAppoinment = ({ selectedDate }) => {
     const { data: appointmentOptions = [] } = useQuery({
         queryKey: ['appointmentOptions'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/appointmentOptions?date=${date}`)
+            const res = await fetch(`https://doctorportal-ten.vercel.app/appointmentOptions?date=${date}`)
             const data = await res.json();
             return data;
         }
@@ -20,10 +21,12 @@ const AvilableAppoinment = ({ selectedDate }) => {
     })
 
 
+
     return (
         <div>
             <p className='text-center '>Avilable Appoinment on : {format(selectedDate, 'PP')}</p>
             <div className='grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+
                 {
                     appointmentOptions.map(option => <AppoinmentOption
                         key={option._id}
@@ -39,10 +42,9 @@ const AvilableAppoinment = ({ selectedDate }) => {
                         setTreatment={setTreatment}
                     ></BookingModa>
                 }
-            </div>
-            <div>
 
             </div>
+
         </div >
     );
 };

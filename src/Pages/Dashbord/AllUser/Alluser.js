@@ -6,7 +6,7 @@ const Alluser = () => {
     const { data: users = [], refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
-            const res = await fetch("http://localhost:5000/users");
+            const res = await fetch("https://doctorportal-ten.vercel.app/users");
             const data = await res.json();
             return data;
         }
@@ -14,7 +14,7 @@ const Alluser = () => {
 
 
     const handleMakeAdmin = id => {
-        fetch(`http://localhost:5000/users/admin/${id}`, {
+        fetch(`https://doctorportal-ten.vercel.app/users/admin/${id}`, {
             method: 'PUT',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -34,9 +34,6 @@ const Alluser = () => {
 
     return (
         <div>
-            <h2>All User</h2>
-
-
             <div className="overflow-x-auto">
                 <table className="table w-full">
                     <thead>
@@ -45,7 +42,6 @@ const Alluser = () => {
                             <th>Name</th>
                             <th>Email</th>
                             <th>Admin</th>
-                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -55,7 +51,7 @@ const Alluser = () => {
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
                                 <td> {user?.role !== 'admin' && <button onClick={() => handleMakeAdmin(user._id)} className='btn btn-xs btn-primary'>Make Admin</button>} </td>
-                                <td> <button className='btn btn-xs btn-error'>DELETE</button> </td>
+
                             </tr>)
                         }
                     </tbody>

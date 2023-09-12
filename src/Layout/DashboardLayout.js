@@ -18,8 +18,6 @@ const DashboardLayout = () => {
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content ">
                     <Outlet></Outlet>
-
-
                 </div>
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
@@ -28,9 +26,10 @@ const DashboardLayout = () => {
                         {
                             isAdmin && <>
                                 <li> <Link to="/dashbord/users">All User</Link></li>
+                                <li> <Link to="/dashbord/adddoctor">Add A Doctor</Link></li>
+                                <li> <Link to="/dashbord/managedoctors">Manage Doctors</Link></li>
                             </>
                         }
-                        {/* <li> <Link to="/dashbord/users">All User</Link></li> */}
                     </ul>
 
                 </div>

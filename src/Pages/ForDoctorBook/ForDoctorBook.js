@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Dashbord = () => {
+const ForDoctorBook = () => {
     return (
         <div>
-            <h2>Dashbord</h2>
+            okkk
         </div>
     );
 };
 
-export default Dashbord;
+export default ForDoctorBook;

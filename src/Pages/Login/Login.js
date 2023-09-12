@@ -15,7 +15,7 @@ const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
 
-    console.log(token, 'tttttttttttttttt')
+
 
 
     const from = location.state?.from?.pathname || "/";
@@ -39,7 +39,7 @@ const Login = () => {
     }
 
     return (
-        <div className='h-[800px] flex justify-center items-center'>
+        <div className='sm:h-[200px] flex justify-center items-center'>
             <div>
                 <h2 className='text-xl text-center'>Login</h2>
                 <form onSubmit={handleSubmit(handleLogin)}>
@@ -74,7 +74,6 @@ const Login = () => {
                 <p>New to Doctors Portal? <Link className='text-secondary' to="/singup">Create new account</Link></p>
                 <div className='divider'>OR</div>
                 <button className='w-full btn btn-outline'>CONTINUE WITH GOOGLE</button>
-
 
             </div>
         </div>
